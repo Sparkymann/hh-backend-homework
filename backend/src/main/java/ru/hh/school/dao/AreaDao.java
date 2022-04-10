@@ -14,19 +14,11 @@ public class AreaDao {
         this.sessionFactoryBean = sessionFactoryBean;
     }
 
-    private Area save(Area entity) {
-        getSession().save(entity);
-        return entity;
-    }
-
-    private Area get(Long id) {
-        return getSession().get(Area.class, id);
-    }
-
     public Area getOrCreate(Area area) {
-        Area tmp = get(area.getId());
+        Area tmp = getSession().get(Area.class, area.getId());
         if (tmp != null) return tmp;
-        return save(area);
+        getSession().save(area);
+        return area;
     }
 
     private Session getSession() {
