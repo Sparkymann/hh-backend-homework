@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializer;
 import ru.hh.school.utils.DefaultInstantDeserializer;
+import ru.hh.school.utils.DefaultInstantSerializer;
 
 import java.time.Instant;
 
@@ -20,7 +20,7 @@ public class VacancyDto {
 
     private SalaryDto salary;
 
-    @JsonSerialize(using = InstantSerializer.class)
+    @JsonSerialize(using = DefaultInstantSerializer.class)
     @JsonDeserialize(using = DefaultInstantDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Instant created_at;
