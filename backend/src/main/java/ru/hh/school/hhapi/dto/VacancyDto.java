@@ -2,6 +2,7 @@ package ru.hh.school.hhapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import ru.hh.school.utils.DefaultInstantDeserializer;
@@ -23,7 +24,8 @@ public class VacancyDto {
     @JsonSerialize(using = DefaultInstantSerializer.class)
     @JsonDeserialize(using = DefaultInstantDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Instant created_at;
+    @JsonProperty(value = "created_at")
+    private Instant createdAt;
 
     private EmployerDto employer;
 
@@ -61,12 +63,12 @@ public class VacancyDto {
         this.salary = salary;
     }
 
-    public Instant getCreated_at() {
-        return created_at;
+    public Instant getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(Instant created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     public EmployerDto getEmployer() {
