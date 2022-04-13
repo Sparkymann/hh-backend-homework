@@ -18,7 +18,8 @@ import java.util.Properties;
   NabTestConfig.class,
   NabHibernateCommonConfig.class,
   NabHibernateTestBaseConfig.class,
-  CommonConfig.class
+  CommonConfig.class,
+  DatabaseHelper.class
 })
 public class AppTestConfig {
 
